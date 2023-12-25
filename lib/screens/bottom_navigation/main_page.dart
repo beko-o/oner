@@ -56,7 +56,12 @@ class MainPage extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Хотите ли вы зарегистрироваться или войти?'),
+          title: const Text(
+            'Вам надо авторизоваться',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
           content: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -87,8 +92,8 @@ class MainPage extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.blue,
-              Colors.blue,
+              Color.fromARGB(255, 178, 128, 174),
+              Color.fromARGB(255, 178, 128, 174),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -162,7 +167,7 @@ class MainPage extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Color.fromARGB(255, 178, 128, 174),
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: [
               BoxShadow(

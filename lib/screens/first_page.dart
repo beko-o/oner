@@ -21,9 +21,12 @@ class FirstPage extends StatelessWidget {
       ),
       body: AnimatedContainer(
         duration: const Duration(seconds: 1),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue, Colors.blueAccent],
+            colors: [
+              Color.fromARGB(255, 178, 128, 174),
+              Color.fromARGB(255, 178, 128, 174)
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -89,7 +92,8 @@ class FirstPage extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: const TextStyle(fontSize: 18, color: Colors.blue),
+          style: const TextStyle(
+              fontSize: 18, color: Color.fromARGB(255, 178, 128, 174)),
         ),
       ),
     );

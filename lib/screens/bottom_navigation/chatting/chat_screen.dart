@@ -123,7 +123,7 @@ class ChatPageState extends State<ChatPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.recieverUserEmail),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color.fromARGB(255, 178, 128, 174),
         elevation: 0,
       ),
       body: Column(
@@ -230,7 +230,7 @@ class ChatPageState extends State<ChatPage> {
                     decoration: BoxDecoration(
                       color: (alignment == MainAxisAlignment.start)
                           ? Colors.white
-                          : Colors.blue,
+                          : Color.fromARGB(255, 213, 145, 207),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Column(
@@ -295,7 +295,7 @@ class ChatPageState extends State<ChatPage> {
             icon: const Icon(
               Icons.send,
               size: 30,
-              color: Colors.blue,
+              color: Color.fromARGB(255, 178, 128, 174),
             ),
           ),
         ],

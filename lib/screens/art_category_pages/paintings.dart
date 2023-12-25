@@ -25,41 +25,38 @@ class _PaintingsPageState extends State<PaintingsPage> {
   }
 
   Widget blogListPaintings() {
-  return StreamBuilder<QuerySnapshot>(
-    stream: FirebaseFirestore.instance.collection('blogs_paintings').snapshots(),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.waiting) {
-        return CircularProgressIndicator();
-      } else if (snapshot.hasError) {
-        return Text('Error: ${snapshot.error}');
-      } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-        return Text('No available blogs.');
-      } else {
-        return Column(
-          children: <Widget>[
-            ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount: snapshot.data!.docs.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return BlogsTile(
-                  docIdPaintings: snapshot.data!.docs[index].id,
-                  authorID: snapshot.data!.docs[index]['authorID'],
-                  titlePaintings: snapshot.data!.docs[index]['titlePaintings'],
-                  descriptionPaintings: snapshot.data!.docs[index]['descriptionPaintings'],
-                  imgUrlPaintings: snapshot.data!.docs[index]['imgUrlPaintings'],
-                  date: snapshot.data!.docs[index]['date'],
-                  time: snapshot.data!.docs[index]['time'],
-                );
-              },
-            )
-          ],
-        );
-      }
-    },
-  );
-}
-
+    return StreamBuilder<QuerySnapshot>(
+      stream:
+          FirebaseFirestore.instance.collection('blogs_paintings').snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+          return Text('No available blogs.');
+        } else {
+          return ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemCount: snapshot.data!.docs.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return BlogsTile(
+                docIdPaintings: snapshot.data!.docs[index].id,
+                authorID: snapshot.data!.docs[index]['authorID'],
+                titlePaintings: snapshot.data!.docs[index]['titlePaintings'],
+                descriptionPaintings: snapshot.data!.docs[index]
+                    ['descriptionPaintings'],
+                imgUrlPaintings: snapshot.data!.docs[index]['imgUrlPaintings'],
+                date: snapshot.data!.docs[index]['date'],
+                time: snapshot.data!.docs[index]['time'],
+              );
+            },
+          );
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +88,7 @@ class _PaintingsPageState extends State<PaintingsPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(child: blogListPaintings()),
+        child: blogListPaintings(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -278,7 +275,7 @@ class BlogsTile extends StatelessWidget {
                             },
                           ),
                         ),
-                        // editing icon
+                      // editing icon
 
                       if (isCurrentUserAuthor)
                         IconButton(
